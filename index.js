@@ -7,11 +7,6 @@ const { kill } = require("process");
 const PORT = 8080;
 const defaultJavaPath = "/bin/java";
 
-let data = JSON.parse(fs.readFileSync("data.json", "utf-8"));
-let killerbank = [];
-api.use(express.json());
-api.use(cors());
-
 if (!fs.existsSync("data.json")) {
     fs.writeFileSync("data.json", JSON.stringify({javapath: defaultJavaPath, servers: []}));
 }
@@ -21,6 +16,11 @@ if (!fs.existsSync("jars")) {
 if (!fs.existsSync("servers")) {
     fs.mkdirSync("servers");
 }
+
+let data = JSON.parse(fs.readFileSync("data.json", "utf-8"));
+let killerbank = [];
+api.use(express.json());
+api.use(cors());
 
 function serverEntryExists(id) {
     for (let i = 0; i < data.servers.length; i++) {
