@@ -1,0 +1,17 @@
+{
+  "name": "minecraftapi",
+  "version": "1.0.0",
+  "description": "An express API for quick minecraft server creation",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "./LICENSE",
+  "dependencies": {
+    "express":"latest",
+    "cors":"latest",
+    "rimraf":"latest"
+  }
+}
