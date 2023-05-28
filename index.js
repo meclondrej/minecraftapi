@@ -65,6 +65,14 @@ api.post("/start", function (req, res) {
         });
         return;
     }
+    for (let i = 0; i < killerbank.length; i++) {
+        if (killerbank[i].id == Number(id)) {
+            res.status(400).send({
+                message: "400 Malformed request"
+            });
+            return;
+        }
+    }
     let proc = require("child_process").spawn(data.javapath, ["-jar", "../../jars/" + data.servers[ex].jar], {
         cwd: "servers/" + id + "/",
         stdio: "ignore"
